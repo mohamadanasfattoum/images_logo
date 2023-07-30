@@ -8,19 +8,19 @@ logo_name = input('Enter logo_name Name: ')
 
 
 
-if not os.path.isdir(output_folder):  # python create folder if not exists
-   os.mkdir(output_folder)
+if not os.path.isdir(output_folder):
+    os.mkdir(output_folder)
 
-logo = Image.open(logo_name)
+logo= Image.open(logo_name)
 logo_width , logo_height = logo.size
 
 
 for filename in os.listdir('.'):
-    if filename.endswith(('.jpg','.png','.jp')):
+    if filename.endswith(('.jpg','.png','.jpeg')):
         image = Image.open(filename)
         width , heigth = image.size
 
-        image.paste(logo,(width - logo_width , heigth - logo_height))
+        image.paste(logo,(width - logo_width , heigth - logo_height),logo)
         image.save(os.path.join(output_folder,filename.lower()))
 
-print('FINISHED...')        
+print('FINISHED...')
